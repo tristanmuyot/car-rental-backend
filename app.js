@@ -17,6 +17,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get(`${API_PREFIX}/`, (req, res) => {
+  res.json({ data: "Hello world" });
+});
+
 // Routes
 app.use(`${API_PREFIX}/cars`, carsRoutes);
 app.use(`${API_PREFIX}/users`, usersRoutes);
