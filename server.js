@@ -3,6 +3,7 @@ const express = require("express");
 const carsRoutes = require("./routes/cars");
 const usersRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
+const bookingRoutes = require("./routes/booking");
 const mongoose = require("mongoose");
 var cors = require("cors");
 
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 app.use(`${API_PREFIX}/cars`, carsRoutes);
 app.use(`${API_PREFIX}/users`, usersRoutes);
 app.use(`${API_PREFIX}/auth`, authRoutes);
+app.use(`${API_PREFIX}/booking`, bookingRoutes);
 
 // DB connection
 mongoose

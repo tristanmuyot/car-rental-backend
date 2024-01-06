@@ -8,6 +8,12 @@ const userSchema = new Schema(
     email_address: String,
     username: String,
     password: String,
+    contact_number: String,
+    role: {
+      type: String,
+      default: "default",
+    },
+
     cars_owned: [{ type: mongoose.Schema.Types.ObjectId, ref: "Car" }],
   },
   { timestamps: true }

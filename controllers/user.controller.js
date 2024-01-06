@@ -26,7 +26,8 @@ async function getUser(req, res) {
 }
 
 async function createUser(req, res) {
-  const { full_name, email_address, username, password } = req.body;
+  const { full_name, email_address, username, password, role, contact_number } =
+    req.body;
 
   try {
     const user = await UserModel.create({
@@ -34,6 +35,8 @@ async function createUser(req, res) {
       email_address,
       username,
       password,
+      role,
+      contact_number,
     });
 
     res.status(200).json({ data: user });

@@ -40,6 +40,8 @@ async function createCar(req, res) {
   form.parse(req, async function (err, fields, files) {
     const details = JSON.parse(fields.details);
 
+    console.log(details);
+
     cloudinary.uploader.upload(
       files.image.path,
       { public_id: `${details.owner} - ${details.name}` },
@@ -52,7 +54,10 @@ async function createCar(req, res) {
               transmission: details.transmission,
               is_booked: false,
               owner: details.owner,
-              location: details.location,
+              city: details.city,
+              year_model: details.year_model,
+              description: details.description,
+              pickup_location: details.pickup_location,
               status: CAR_STATUSES.WAITING_FOR_VISIT,
               image_url: result.url,
               rate: {
